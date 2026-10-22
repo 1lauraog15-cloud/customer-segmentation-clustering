@@ -11,8 +11,8 @@ A transnational e-commerce company (customers across 47 countries, 5 continents)
 1. **Data cleaning** — handled missing values, removed duplicates, standardised currency fields.
 2. **Feature engineering** — aggregated order-level data into one row per customer and built five behavioural/demographic metrics: **Frequency**, **Recency**, **Customer Lifetime Value (CLV)**, **Average Unit Cost**, and **Age**.
 3. **Scaling & pipeline** — `StandardScaler` + `scikit-learn` `Pipeline` to keep preprocessing and modelling reproducible.
-4. **Choosing k** — compared the Elbow method, Silhouette score, and Davies-Bouldin Index; all three converged on **k = 5**.
-5. **Clustering** — K-Means (k=5) as the primary model, validated independently with hierarchical clustering (Ward linkage) and a dendrogram.
+4. **Choosing k** — compared the Elbow method, Silhouette score and Davies-Bouldin Index. The elbow flattens after k = 5 and the silhouette score peaks there (0.265); Davies-Bouldin is lowest at k = 6 (1.129), with k = 5 almost identical (1.134). **k = 5** was chosen for clearer, more actionable segments.
+5. **Clustering** — K-Means (k=5) as the primary model, compared with hierarchical clustering (Ward linkage): the dendrogram's largest jump points to a broader two-group structure, which the five segments subdivide.
 6. **Dimensionality reduction** — PCA (65.25% variance explained) and t-SNE for 2D visualisation of the five segments.
 
 ## Results — five customer segments
